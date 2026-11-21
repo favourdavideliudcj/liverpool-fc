@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liverpool FC Pro Suite | 2026/27 Edition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div>
+      <div class="brand">
+        <div class="crest">LFC</div>
+        <div>
+          <h1>LIVERPOOL FC</h1>
+          <span>2026/27 PRO SUITE</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu" aria-label="Squad Position Filter">
+        <button class="nav-btn active" data-role="ALL">Full First-Team Squad</button>
+        <button class="nav-btn" data-role="GK">Goalkeepers</button>
+        <button class="nav-btn" data-role="DEF">Defenders</button>
+        <button class="nav-btn" data-role="MID">Midfielders</button>
+        <button class="nav-btn" data-role="FWD">Forwards</button>
+      </nav>
+    </div>
+
+    <div class="coach-card">
+      <small>Head Coach • 2026/27</small>
+      <h4>Andoni Iraola</h4>
+      <p>High-pressing, aggressive vertical football at Anfield.</p>
+      <button id="kitSwitchBtn" class="kit-btn">Switch Away Teal Theme</button>
+    </div>
+  </aside>
+
+  <!-- Main Workspace -->
+  <main class="workspace">
+    <header class="top-bar">
+      <div>
+        <h2>Anfield Tactical & Matchday Command</h2>
+        <p class="subtitle">Click squad cards to scout, click pitch players to substitute, or simulate an Anfield match.</p>
+      </div>
+      <input type="text" id="searchInput" class="search-box" placeholder="Search player or kit #..." />
+    </header>
+
+    <!-- Club KPIs -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <span>Home Fortress</span>
+        <strong>Anfield</strong>
+        <em>Capacity: 61,276 • Est. 1892</em>
+      </div>
+      <div class="kpi-card">
+        <span>English League Titles</span>
+        <strong>20</strong>
+        <em>Joint All-Time Record</em>
+      </div>
+      <div class="kpi-card">
+        <span>European Cups</span>
+        <strong>6</strong>
+        <em>Most in England</em>
+      </div>
+      <div class="kpi-card">
+        <span>Club Captain</span>
+        <strong>#4 Van Dijk</strong>
+        <em>385+ Club Appearances</em>
+      </div>
+    </section>
+
+    <!-- Squad Roster + Interactive Pitch -->
+    <section class="split-grid">
+      <div class="panel">
+        <div class="panel-header">
+          <h3>2026/27 First-Team Roster</h3>
+          <span id="rosterCount" class="gold-badge">18 Players</span>
+        </div>
+        <div class="roster-grid" id="rosterGrid"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Starting XI <small class="hint">(Click node to swap)</small></h3>
+          <div class="pill-group">
+            <button class="pill active" data-formation="4231">4-2-3-1</button>
+            <button class="pill" data-formation="433">4-3-3</button>
+            <button class="pill" data-formation="343">3-4-3</button>
+          </div>
+        </div>
+        <div class="pitch" id="pitch"></div>
+      </div>
+    </section>
+
+    <!-- Head-to-Head Comparison + Anfield Match Simulator -->
+    <section class="bottom-grid">
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Head-to-Head Scouting</h3>
+          <span class="hint">Primary vs Gold</span>
+        </div>
+        <div class="compare-controls">
+          <select id="selectA" class="pro-select"></select>
+          <select id="selectB" class="pro-select"></select>
+        </div>
+        <div id="compareBars"></div>
+      </div>
+
+      <div class="panel match-panel">
+        <div class="panel-header">
+          <h3>Anfield Live Match Engine</h3>
+          <span class="gold-badge" id="matchClock">00'</span>
+        </div>
+        <div class="scoreboard">
+          <div class="team-box">
+            <span class="team-tag">LIVERPOOL</span>
+            <strong id="lfcScore">0</strong>
+          </div>
+          <span class="vs">VS</span>
+          <div class="team-box">
+            <span class="team-tag">EUROPEAN RIVALS</span>
+            <strong id="oppScore">0</strong>
+          </div>
+        </div>
+        <div class="match-actions">
+          <button id="simBtn" class="action-btn primary">Simulate 90 Mins</button>
+          <button id="resetMatchBtn" class="action-btn secondary">Reset</button>
+        </div>
+        <ul class="match-feed" id="matchFeed">
+          <li>Ready for kick-off under the Anfield lights.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for Player Scouting & Pitch Substitutions -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-card" id="modalCard"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
